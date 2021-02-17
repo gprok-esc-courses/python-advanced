@@ -123,7 +123,6 @@ class SudokuUI:
         self.window = tk.Tk()
         self.cells = [[None] * 9, [None] * 9, [None] * 9, [None] * 9, [None] * 9,
                       [None] * 9, [None] * 9, [None] * 9, [None] * 9]
-        print(self.cells)
         for row in range(3):
             for col in range(3):
                 block = Block(self.window, row, col, self.cells,
@@ -159,7 +158,6 @@ class SudokuUI:
                 self.active.deselect()
             self.active = cell
             self.active.select()
-        print(row, col)
 
     def key_pressed(self, event):
         """

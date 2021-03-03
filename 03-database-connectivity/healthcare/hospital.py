@@ -23,6 +23,7 @@ class Hospital:
         cursor.execute(sql, data)
         db.commit()
 
+
 class HospitalRepository:
 
     @staticmethod

@@ -27,16 +27,17 @@ df_invest = DataFrame(data_invest, columns=['Interest_Rate', 'Stock_Index_Price'
 # Create the window app
 root= tk.Tk()
 
-figure1 = plt.Figure(figsize=(5, 4), dpi=100)
-ax1 = figure1.add_subplot(111)
+figure1 = plt.Figure(figsize=(5, 6), dpi=100)
+ax1 = figure1.add_subplot(221)
 bar1 = FigureCanvasTkAgg(figure1, root)
 bar1.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
 df_gdp_country = df_gdp[['Country','GDP']].groupby('Country').sum()
+print(df_gdp_country)
 df_gdp_country.plot(kind='bar', legend=True, ax=ax1)
 ax1.set_title('Country Vs. GDP Per Capita')
 
 figure2 = plt.Figure(figsize=(5,4), dpi=100)
-ax2 = figure2.add_subplot(111)
+ax2 = figure1.add_subplot(224)
 line2 = FigureCanvasTkAgg(figure2, root)
 line2.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
 df_unemployment = df_unemployment[['Year', 'Unemployment_Rate']].groupby('Year').sum()

@@ -34,7 +34,7 @@ server_socket.listen()
 while True:
     print('waiting for connection...')
     conn, addr = server_socket.accept()
-    print('...connected from:', addr)
+    print('...connected from:', conn, addr)
     name_bytes = conn.recv(1024)
     conn.send(b'Hi, start sending messages')
     connection = Connection(conn, name_bytes.decode())

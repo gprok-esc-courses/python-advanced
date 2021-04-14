@@ -44,6 +44,7 @@ class Server:
         while True:
             msg = client.recv(self.buffer_size)
             if msg == bytes("close", "utf8"):
+                del self.clients[client]
                 message = bytes(name, "utf8") + bytes(" leaving chat", "utf8")
                 self.broadcast(message)
                 break
